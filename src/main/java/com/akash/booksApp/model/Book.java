@@ -1,4 +1,4 @@
-package com.jrd.akash.booksApp.model;
+package com.akash.booksApp.model;
 
 public class Book {
 

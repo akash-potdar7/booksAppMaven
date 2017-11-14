@@ -1,4 +1,4 @@
-package com.jrd.akash.booksApp.entity;
+package com.akash.booksApp.entity;
 
 import java.io.Serializable;
 

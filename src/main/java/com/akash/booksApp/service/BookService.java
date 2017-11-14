@@ -1,8 +1,8 @@
-package com.jrd.akash.booksApp.service;
+package com.akash.booksApp.service;
 
 import java.util.List;
 
-import com.jrd.akash.booksApp.model.Book;
+import com.akash.booksApp.model.Book;
 
 public interface BookService {
 

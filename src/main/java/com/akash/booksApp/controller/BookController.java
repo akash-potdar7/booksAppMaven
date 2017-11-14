@@ -1,4 +1,4 @@
-package com.jrd.akash.booksApp.controller;
+package com.akash.booksApp.controller;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jrd.akash.booksApp.model.Book;
-import com.jrd.akash.booksApp.service.BookService;
+import com.akash.booksApp.model.Book;
+import com.akash.booksApp.service.BookService;
 
 @RestController
 @RequestMapping("/api")

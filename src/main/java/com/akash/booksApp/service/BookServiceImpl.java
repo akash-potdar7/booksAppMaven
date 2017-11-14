@@ -1,4 +1,4 @@
-package com.jrd.akash.booksApp.service;
+package com.akash.booksApp.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -7,9 +7,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jrd.akash.booksApp.entity.BookEntity;
-import com.jrd.akash.booksApp.model.Book;
-import com.jrd.akash.booksApp.repo.BookRepository;
+import com.akash.booksApp.entity.BookEntity;
+import com.akash.booksApp.model.Book;
+import com.akash.booksApp.repo.BookRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
