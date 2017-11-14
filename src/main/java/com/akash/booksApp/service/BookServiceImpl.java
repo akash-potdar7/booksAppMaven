@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.akash.booksApp.entity.BookEntity;
+import com.akash.booksApp.entity.GenreEntity;
 import com.akash.booksApp.model.Book;
+import com.akash.booksApp.model.Genre;
 import com.akash.booksApp.repo.BookRepository;
+import com.akash.booksApp.repo.GenreRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -17,13 +20,12 @@ public class BookServiceImpl implements BookService {
 	@Autowired
 	private BookRepository bookRepository;
 
+	@Autowired
+	private GenreRepository genreRepository;
+
 	@Override
 	public Book saveBook(Book book) {
-		System.out.println("in BookServiceImpl.saveBook()");
-		BookEntity entity = new BookEntity();
-		entity = viewToEntity(book, entity);
-		Book respObj = entityToView(bookRepository.save(entity));
-		return respObj;
+		return entityToView(bookRepository.save(viewToEntity(book)));
 	}
 
 	// Converts Entity Obj to View Obj
@@ -31,16 +33,17 @@ public class BookServiceImpl implements BookService {
 		Book book = new Book();
 		book.setIsbn(entity.getIsbn());
 		book.setName(entity.getName());
-		book.setGenre(entity.getGenre());
+		book.setGenreId(entity.getGenreId());
 		book.setAuthor(entity.getAuthor());
 		return book;
 	}
 
 	// Converts View Obj to Entity Obj
-	private BookEntity viewToEntity(Book book, BookEntity entity) {
+	private BookEntity viewToEntity(Book book) {
+		BookEntity entity = new BookEntity();
 		entity.setIsbn(book.getIsbn());
 		entity.setName(book.getName());
-		entity.setGenre(book.getGenre());
+		entity.setGenreId(book.getGenreId());
 		entity.setAuthor(book.getAuthor());
 		return entity;
 	}
@@ -54,5 +57,24 @@ public class BookServiceImpl implements BookService {
 		}
 		return books;
 	}
+
+	@Override
+	public List<Genre> getGenreData() {
+		List<Genre> genreList = new ArrayList<Genre>();
+		Iterator<GenreEntity> iterator = genreRepository.findAll().iterator();
+		while (iterator.hasNext()) {
+			genreList.add(genreEntityToViewObj(iterator.next()));
+		}
+		return genreList;
+	}
+
+	// converts Genre Entity Obj to View Obj.
+	private Genre genreEntityToViewObj(GenreEntity genreEntity) {
+		Genre genre = new Genre();
+		genre.setId(genreEntity.getId());
+		genre.setGenre(genreEntity.getGenre());
+		return genre;
+	}
+
 
 }
