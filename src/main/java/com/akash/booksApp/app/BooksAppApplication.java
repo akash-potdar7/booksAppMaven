@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication()
-@ComponentScan(basePackages = { "com.akash.booksApp.app" })
+@ComponentScan(basePackages = { "com.akash.booksApp" })
 @EnableJpaRepositories("com.akash.booksApp.repo")
 @EntityScan(basePackages = { "com.akash.booksApp.entity" })
 public class BooksAppApplication {
