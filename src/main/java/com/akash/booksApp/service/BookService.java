@@ -13,4 +13,8 @@ public interface BookService {
 	
 	List<Genre> getGenreData();
 
+	Book updateBook(Book book);
+
+	void deleteBook(Integer bookId);
+
 }

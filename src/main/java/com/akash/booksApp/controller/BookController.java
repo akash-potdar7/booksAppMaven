@@ -19,7 +19,8 @@ public class BookController {
 	@Autowired
 	BookService bookService;
 
-	public BookController() {}
+	public BookController() {
+	}
 
 	// To test RequestMapping
 	@RequestMapping("/")
@@ -37,10 +38,18 @@ public class BookController {
 		return bookService.saveBook(book);
 	}
 
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/getGenreData", method = RequestMethod.GET)
 	public List<Genre> getGenreDropDownData() {
 		return bookService.getGenreData();
 	}
 
+	@RequestMapping(value = "/updateBook", method = RequestMethod.POST)
+	public Book updateBook(@RequestBody Book book) {
+		return bookService.updateBook(book);
+	}
+	
+	@RequestMapping(value = "/deleteBook", method = RequestMethod.POST)
+	public void deleteBook(@RequestBody Book book) {
+		bookService.deleteBook(book.getIsbn());
+	}
 }

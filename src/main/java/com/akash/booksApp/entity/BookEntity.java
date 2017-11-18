@@ -2,18 +2,14 @@ package com.akash.booksApp.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Book")
+@Table(name = "Book")
 public class BookEntity implements Serializable {
-
 
 	private static final long serialVersionUID = 1L;
 
@@ -59,8 +55,6 @@ public class BookEntity implements Serializable {
 		this.name = name;
 	}
 
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="genre")
 	public Integer getGenreId() {
 		return genreId;
 	}
@@ -122,8 +116,7 @@ public class BookEntity implements Serializable {
 
 	@Override
 	public String toString() {
-		return "BookEntity [isbn=" + isbn + ", name=" + name + ", genreId=" + genreId + ", author=" + author
-				+ "]";
+		return "BookEntity [isbn=" + isbn + ", name=" + name + ", genreId=" + genreId + ", author=" + author + "]";
 	}
 
 }
